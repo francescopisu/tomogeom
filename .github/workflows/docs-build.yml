@@ -32,7 +32,7 @@ jobs:
               run: codespell --skip="*.csv,*.geojson,*.json,*.js,*.html,*cff,*.pdf,./.git" --ignore-words-list="aci,acount,hist"
             - name: PKG-TEST
               run: |
-                  python -m unittest discover tests/
+                  python -m pytest -v tests/ --cov=tomogeom --cov-report=xml -rP
             - name: Build docs
               run: |
                   mkdocs build

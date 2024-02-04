@@ -37,9 +37,9 @@ jobs:
                   gdalinfo --version
             - name: Install dependencies
               run: |
-                  pip install --user -r requirements.txt
+                  pip install --user -r requirements.txt -r requirements_dev.txt
                   pip install .
             - name: PKG-TEST
               run: |
-                  python -m unittest discover tests/
+                  python -m pytest -v tests/ --cov=tomogeom --cov-report=xml -rP
 
